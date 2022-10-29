@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class UserDTO {
-    private final String name;
+    private String name;
     @Age(minAge = 15)
-    private final String dateOfBirth;
-    private final String email;
+    private String dateOfBirth;
+    private String email;
 }

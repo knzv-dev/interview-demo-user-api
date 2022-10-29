@@ -1,18 +1,7 @@
 package com.inteerview.demo.repository;
 
-import com.inteerview.demo.domain.User;
-import org.springframework.stereotype.Repository;
+import com.inteerview.demo.repository.entity.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class H2UserRepository implements UserRepository {
-
-    @Override
-    public void save(User user) {
-
-    }
-
-    @Override
-    public User findOneByEmail(String email) {
-        return null;
-    }
+public interface H2UserRepository extends JpaRepository<UserEntity, String> {
 }

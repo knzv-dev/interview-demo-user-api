@@ -1,0 +1,19 @@
+2022-10-29 09:01:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; ожидалось "identifier"
+Syntax error in SQL statement "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; expected "identifier"; SQL statement:
+select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from user userentity0_ where userentity0_.email=? [42001-214]
+2022-10-29 09:02:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; ожидалось "identifier"
+Syntax error in SQL statement "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; expected "identifier"; SQL statement:
+select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from user userentity0_ where userentity0_.email=? [42001-214]
+2022-10-29 09:03:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; ожидалось "identifier"
+Syntax error in SQL statement "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; expected "identifier"; SQL statement:
+select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from user userentity0_ where userentity0_.email=? [42001-214]
+2022-10-29 09:04:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; ожидалось "identifier"
+Syntax error in SQL statement "select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from [*]user userentity0_ where userentity0_.email=?"; expected "identifier"; SQL statement:
+select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from user userentity0_ where userentity0_.email=? [42001-214]
+2022-10-29 09:06:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found (this database is empty); SQL statement:
+select userentity0_.email as email1_0_0_, userentity0_.date_of_birth as date_of_2_0_0_, userentity0_.name as name3_0_0_ from users userentity0_ where userentity0_.email=? [42104-214]

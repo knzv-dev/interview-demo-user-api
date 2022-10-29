@@ -5,7 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.time.Duration;
 import java.time.LocalDate;
 
-public class AgeValidator implements ConstraintValidator<Age, String> {
+public class AgeValidator implements ConstraintValidator<Age, LocalDate> {
 
     private int minAge;
 
@@ -15,12 +15,10 @@ public class AgeValidator implements ConstraintValidator<Age, String> {
     }
 
     @Override
-    public boolean isValid(String value, ConstraintValidatorContext context) {
-        //ISO format
-        LocalDate date = LocalDate.parse(value);
+    public boolean isValid(LocalDate value, ConstraintValidatorContext context) {
         //todo timezone
         LocalDate now = LocalDate.now();
-        Duration diff = Duration.between(date.atStartOfDay(), now.atStartOfDay());
+        Duration diff = Duration.between(value.atStartOfDay(), now.atStartOfDay());
         long diffDays = diff.toDays();
 
         return minAge >= diffDays;

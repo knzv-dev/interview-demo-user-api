@@ -1,18 +1,20 @@
 package com.inteerview.demo.service;
 
 import com.inteerview.demo.domain.User;
-import com.inteerview.demo.repository.UserRepository;
+import com.inteerview.demo.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository repository;
+    private final UserDao repository;
 
     @Override
-    public User search(String email) {
+    public Optional<User> search(String email) {
         return repository.findOneByEmail(email);
     }
 
