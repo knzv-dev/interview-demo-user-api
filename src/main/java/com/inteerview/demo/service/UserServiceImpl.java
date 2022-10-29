@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User search(String email) {
-
+        return repository.findOneByEmail(email);
     }
 
     @Override

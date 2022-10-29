@@ -5,7 +5,7 @@ import com.inteerview.demo.domain.User;
 
 public interface UserRepository {
 
-    public User search(String email);
+    void save(User user);
 
-    public void save(User user);
+    User findOneByEmail(String email);
 }

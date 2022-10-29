@@ -1,8 +1,8 @@
 package com.inteerview.demo.controller;
 
 import com.inteerview.demo.domain.User;
-import com.inteerview.demo.dto.SearchRequest;
-import com.inteerview.demo.dto.UserDTO;
+import com.inteerview.demo.controller.dto.SearchRequest;
+import com.inteerview.demo.controller.dto.UserDTO;
 import com.inteerview.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -18,12 +18,12 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping(value = "user")
-    public void putUserRecord(@Validated UserDTO dto) {
+    public void createUser(@Validated UserDTO dto) {
         userService.save(convertToModel(dto));
     }
 
     @GetMapping(value = "user")
-    public UserDTO searchUser(@RequestParam SearchRequest request) {
+    public UserDTO searchUser(SearchRequest request) {
         return convertToDto(userService.search(request.getEmail()));
     }
 

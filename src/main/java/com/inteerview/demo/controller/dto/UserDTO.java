@@ -1,14 +1,12 @@
-package com.inteerview.demo.dto;
+package com.inteerview.demo.controller.dto;
 
 import com.inteerview.demo.validation.Age;
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class UserDTO {
     private final String name;
-    @Age()
+    @Age(minAge = 15)
     private final String dateOfBirth;
     private final String email;
 }
