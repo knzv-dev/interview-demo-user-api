@@ -5,7 +5,6 @@ import com.inteerview.demo.controller.dto.UserDTO;
 import com.inteerview.demo.domain.User;
 import com.inteerview.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

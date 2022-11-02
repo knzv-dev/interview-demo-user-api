@@ -3,7 +3,6 @@ package com.inteerview.demo.validation;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Retention;
-import java.time.Clock;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 

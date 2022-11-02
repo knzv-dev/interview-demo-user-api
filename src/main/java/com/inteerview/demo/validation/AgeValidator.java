@@ -2,7 +2,6 @@ package com.inteerview.demo.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 

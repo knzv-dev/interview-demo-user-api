@@ -1,7 +1,7 @@
 package com.inteerview.demo.service;
 
-import com.inteerview.demo.domain.User;
 import com.inteerview.demo.dao.UserDao;
+import com.inteerview.demo.domain.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
