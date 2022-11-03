@@ -5,11 +5,7 @@ import com.inteerview.demo.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,6 +15,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -47,5 +44,19 @@ class UserControllerIntegTest {
                 .andExpect(jsonPath("$.name").value("John"))
                 .andExpect(jsonPath("$.dateOfBirth").value("1967-12-12"))
                 .andExpect(jsonPath("$.email").value("e@mail.org"));
+    }
+
+    @Test
+    public void should_save() throws Exception {
+        mockMvc.perform(post("/users")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"name\": \"Sam\", \"dateOfBirth\": \"1990-01-01\", \"email\": \"sam@mail.org\"}"))
+                .andExpect(status().isOk());
+
+        Mockito.verify(userService).save(User.builder()
+                .dateOfBirth(LocalDate.of(1990, 1, 1))
+                .name("Sam")
+                .email("sam@mail.org")
+                .build());
     }
 }
