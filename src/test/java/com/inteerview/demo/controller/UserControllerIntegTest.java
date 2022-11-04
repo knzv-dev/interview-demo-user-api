@@ -59,4 +59,19 @@ class UserControllerIntegTest {
                 .email("sam@mail.org")
                 .build());
     }
+
+    @Test
+    public void should_throw_4xx_exception() throws Exception {
+        String json = String.format(
+                "{\"name\": \"Sam\", \"dateOfBirth\": %s, \"email\": \"sam@mail.org\"}",
+                LocalDate.now().minusYears(14));
+
+
+        mockMvc.perform(post("/users")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().is4xxClientError());
+
+        Mockito.verifyNoInteractions(userService);
+    }
 }
