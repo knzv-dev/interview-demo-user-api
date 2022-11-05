@@ -1,6 +1,6 @@
 package com.inteerview.demo.controller;
 
-import com.inteerview.demo.controller.dto.SearchRequest;
+import com.inteerview.demo.controller.dto.SearchRequestDTO;
 import com.inteerview.demo.controller.dto.UserDTO;
 import com.inteerview.demo.domain.User;
 import com.inteerview.demo.service.UserService;
@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping
-    public Optional<UserDTO> searchUser(SearchRequest request) {
+    public Optional<UserDTO> searchUser(SearchRequestDTO request) {
         return userService.search(request.getEmail()).map(this::convertToDto);
     }
 
