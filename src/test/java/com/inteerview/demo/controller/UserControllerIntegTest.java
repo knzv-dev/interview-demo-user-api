@@ -63,7 +63,7 @@ class UserControllerIntegTest {
     @Test
     public void should_throw_4xx_exception() throws Exception {
         String json = String.format(
-                "{\"name\": \"Sam\", \"dateOfBirth\": %s, \"email\": \"sam@mail.org\"}",
+                "{\"name\": \"Sam\", \"dateOfBirth\": \"%s\", \"email\": \"sam@mail.org\"}",
                 LocalDate.now().minusYears(14));
 
 
