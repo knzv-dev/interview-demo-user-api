@@ -11,7 +11,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = AgeValidator.class)
 public @interface Age {
 
-    String message() default "{com.interview.demo.validation.Age.message}";
+    String message() default "Invalid age";
 
     Class<?>[] groups() default {};
 
