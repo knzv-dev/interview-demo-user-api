@@ -17,5 +17,5 @@ public @interface Age {
 
     Class<? extends Payload>[] payload() default {};
 
-    int minAge() default 18;
+    int minAge();
 }
