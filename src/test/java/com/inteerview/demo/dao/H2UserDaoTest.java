@@ -1,15 +1,13 @@
 package com.inteerview.demo.dao;
 
+import com.inteerview.demo.converter.UserConverter;
 import com.inteerview.demo.domain.User;
 import com.inteerview.demo.repository.H2UserRepository;
 import com.inteerview.demo.repository.entity.UserEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.*;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -20,6 +18,9 @@ class H2UserDaoTest {
 
     @Mock
     private H2UserRepository repository;
+
+    @Spy
+    private UserConverter converter;
 
     @InjectMocks
     private H2UserDao userDao;

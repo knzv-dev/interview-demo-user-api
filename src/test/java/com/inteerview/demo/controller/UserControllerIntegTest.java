@@ -1,5 +1,6 @@
 package com.inteerview.demo.controller;
 
+import com.inteerview.demo.converter.UserConverter;
 import com.inteerview.demo.domain.User;
 import com.inteerview.demo.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
-@ContextConfiguration(classes = UserController.class)
+@ContextConfiguration(classes = {UserController.class, UserConverter.class})
 class UserControllerIntegTest {
 
     @Autowired
