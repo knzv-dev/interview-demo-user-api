@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class UserDTO {
 
+    @NotBlank
     private String name;
     @Age(minAge = 15)
     private String dateOfBirth;
