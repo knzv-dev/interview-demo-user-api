@@ -1,6 +1,7 @@
 package com.inteerview.demo.validation;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mockito;
@@ -41,5 +42,15 @@ class AgeValidatorTest {
         Assertions.assertEquals(result, expected);
     }
 
+    @Test
+    public void should_throw_exception_if_date_is_not_iso_format() {
+        var validator = new AgeValidator();
+        var ctx = Mockito.mock(ConstraintValidatorContext.class);
+        Mockito.when(ctx.getClockProvider()).thenReturn(() -> Clock.system(ZoneId.systemDefault()));
+
+        Assertions.assertThrows(Exception.class, () -> {
+            validator.isValid("01-01-1990", ctx);
+        });
+    }
 
 }
