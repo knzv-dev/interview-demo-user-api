@@ -1,5 +1,6 @@
 package com.inteerview.demo.controller;
 
+import com.inteerview.demo.configuration.WebSecurityConfiguration;
 import com.inteerview.demo.converter.UserConverter;
 import com.inteerview.demo.domain.User;
 import com.inteerview.demo.service.UserService;
@@ -15,13 +16,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
-@ContextConfiguration(classes = {UserController.class, UserConverter.class})
+@ContextConfiguration(classes = {
+        UserController.class,
+        UserConverter.class,
+        WebSecurityConfiguration.class})
 class UserControllerIntegTest {
 
     @Autowired
@@ -39,7 +44,7 @@ class UserControllerIntegTest {
                         .dateOfBirth(LocalDate.of(1967, 12, 12))
                         .build()));
 
-        mockMvc.perform(get("/users?email=e@mail.org")
+        mockMvc.perform(get("/users?email=e@mail.org").with(httpBasic("user", "password"))
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("John"))
@@ -49,7 +54,7 @@ class UserControllerIntegTest {
 
     @Test
     public void should_save() throws Exception {
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post("/users").with(httpBasic("user", "password"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\": \"Sam\", \"dateOfBirth\": \"1990-01-01\", \"email\": \"sam@mail.org\"}"))
                 .andExpect(status().isOk());
@@ -68,7 +73,7 @@ class UserControllerIntegTest {
                 LocalDate.now().minusYears(14));
 
 
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post("/users").with(httpBasic("user", "password"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(json))
                 .andExpect(status().is4xxClientError());
